@@ -22,16 +22,6 @@ AddEventHandler("esx_society:notify", function(icon, type, sender, title, text)
     end)
 end)
 
-function EnableSocietyMoneyHUDElement()
-
-  local societyMoneyHUDElementTpl = '<div><img src="' .. base64MoneyIcon .. '" style="width:20px; height:20px; vertical-align:middle;">&nbsp;{{money}}</div>'
-
-  ESX.UI.HUD.RegisterElement('society_money', 3, 0, societyMoneyHUDElementTpl, {
-    money = 0
-  })
-
-end
-
 ---SECONDJOB INCLUDED
 function EnableSociety2MoneyHUDElement()
 
@@ -41,10 +31,6 @@ function EnableSociety2MoneyHUDElement()
     money = 0
   })
 
-end
-
-function DisableSocietyMoneyHUDElement()
-  ESX.UI.HUD.RemoveElement('society_money')
 end
 
 ---SECONDJOB INCLUDED
@@ -691,18 +677,6 @@ RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
   
   PlayerData = xPlayer
-
-  DisableSocietyMoneyHUDElement()
-
-  if PlayerData.job.grade_name == 'boss' then
-    
-    EnableSocietyMoneyHUDElement()
-  
-    ESX.TriggerServerCallback('esx_society:getSocietyMoney', function(money)
-      UpdateSocietyMoneyHUDElement(money)
-    end, PlayerData.job.name)
-
-  end
   
   if PlayerData.job2.grade_name == 'boss' then
     
@@ -720,12 +694,8 @@ AddEventHandler('esx:setJob', function(job)
 
   PlayerData.job = job
 
-  DisableSocietyMoneyHUDElement()
-
   if PlayerData.job.grade_name == 'boss' then
     
-    EnableSocietyMoneyHUDElement()
-  
     ESX.TriggerServerCallback('esx_society:getSocietyMoney', function(money)
       UpdateSocietyMoneyHUDElement(money)
     end, PlayerData.job.name)
