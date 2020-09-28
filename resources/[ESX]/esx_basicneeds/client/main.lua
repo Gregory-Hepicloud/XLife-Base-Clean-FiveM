@@ -17,8 +17,8 @@ end)
 RegisterNetEvent('esx_basicneeds:healPlayer')
 AddEventHandler('esx_basicneeds:healPlayer', function()
 	-- restore hunger & thirst
-	TriggerEvent('esx_status:set', 'hunger', 1000000)
-	TriggerEvent('esx_status:set', 'thirst', 1000000)
+	TriggerEvent('esx_status:set', 'hunger', 10000000)
+	TriggerEvent('esx_status:set', 'thirst', 10000000)
 
 	-- restore hp
 	local playerPed = PlayerPedId()
@@ -39,12 +39,12 @@ end)
 
 AddEventHandler('esx_status:loaded', function(status)
 
-	TriggerEvent('esx_status:registerStatus', 'hunger', 1000000, '#CFAD0F', function(status)
+	TriggerEvent('esx_status:registerStatus', 'hunger', 10000000, '#CFAD0F', function(status)
         return false
     end, function(status)
         status.remove(1000)
     end)
-    TriggerEvent('esx_status:registerStatus', 'thirst', 1000000, '#0C98F1', function(status)
+    TriggerEvent('esx_status:registerStatus', 'thirst', 10000000, '#0C98F1', function(status)
         return false
     end, function(status)
         status.remove(750)

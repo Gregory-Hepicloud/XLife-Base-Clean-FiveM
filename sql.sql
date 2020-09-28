@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : Dim 27 sep. 2020 à 19:50
+-- Généré le : lun. 28 sep. 2020 à 12:24
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.6
 
@@ -59,7 +59,7 @@ CREATE TABLE `addon_account_data` (
 --
 
 INSERT INTO `addon_account_data` (`id`, `account_name`, `money`, `owner`) VALUES
-(4, 'society_cardealer', 0, NULL);
+(4, 'society_cardealer', 2500, NULL);
 
 -- --------------------------------------------------------
 
@@ -345,7 +345,11 @@ INSERT INTO `job_grades` (`id`, `job_name`, `grade`, `name`, `label`, `salary`, 
 (43, 'cardealer', 0, 'recruit', 'Recrue', 10, '{}', '{}'),
 (44, 'cardealer', 1, 'novice', 'Novice', 25, '{}', '{}'),
 (45, 'cardealer', 2, 'experienced', 'Experimente', 40, '{}', '{}'),
-(46, 'cardealer', 3, 'boss', 'Patron', 0, '{}', '{}');
+(46, 'cardealer', 3, 'boss', 'Patron', 0, '{}', '{}'),
+(47, 'cardealer', 0, 'recruit', 'Recrue', 10, '{}', '{}'),
+(48, 'cardealer', 1, 'novice', 'Novice', 25, '{}', '{}'),
+(49, 'cardealer', 2, 'experienced', 'Experimente', 40, '{}', '{}'),
+(50, 'cardealer', 3, 'boss', 'Patron', 0, '{}', '{}');
 
 -- --------------------------------------------------------
 
@@ -376,6 +380,7 @@ INSERT INTO `licenses` (`type`, `label`) VALUES
 
 CREATE TABLE `owned_vehicles` (
   `owner` varchar(40) NOT NULL,
+  `state` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Etat de la voiture',
   `plate` varchar(12) NOT NULL,
   `vehicle` longtext DEFAULT NULL,
   `type` varchar(20) NOT NULL DEFAULT 'car',
@@ -1139,13 +1144,13 @@ ALTER TABLE `vehicle_sold`
 -- AUTO_INCREMENT pour la table `addon_account_data`
 --
 ALTER TABLE `addon_account_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `addon_inventory_items`
 --
 ALTER TABLE `addon_inventory_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `billing`
@@ -1157,13 +1162,13 @@ ALTER TABLE `billing`
 -- AUTO_INCREMENT pour la table `cardealer_vehicles`
 --
 ALTER TABLE `cardealer_vehicles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `datastore_data`
 --
 ALTER TABLE `datastore_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `fine_types`
@@ -1175,7 +1180,7 @@ ALTER TABLE `fine_types`
 -- AUTO_INCREMENT pour la table `job_grades`
 --
 ALTER TABLE `job_grades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT pour la table `phone_app_chat`
@@ -1223,31 +1228,31 @@ ALTER TABLE `society_moneywash`
 -- AUTO_INCREMENT pour la table `twitter_accounts`
 --
 ALTER TABLE `twitter_accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT pour la table `twitter_likes`
 --
 ALTER TABLE `twitter_likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT pour la table `twitter_tweets`
 --
 ALTER TABLE `twitter_tweets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- AUTO_INCREMENT pour la table `user_accounts`
 --
 ALTER TABLE `user_accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `user_inventory`
 --
 ALTER TABLE `user_inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT pour la table `user_licenses`
