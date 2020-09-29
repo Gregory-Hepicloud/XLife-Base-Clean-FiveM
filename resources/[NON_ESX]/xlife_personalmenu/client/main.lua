@@ -167,11 +167,6 @@ if Config.Voice.activated then
 	end)
 end
 
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(xPlayer)
-	ESX.PlayerData = xPlayer
-end)
-
 AddEventHandler('esx:onPlayerDeath', function()
 	Player.isDead = true
 	RageUI.CloseAll()

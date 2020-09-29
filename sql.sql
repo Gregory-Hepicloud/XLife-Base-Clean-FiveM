@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 28 sep. 2020 à 12:24
+-- Généré le : mar. 29 sep. 2020 à 12:28
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.6
 
@@ -59,7 +59,7 @@ CREATE TABLE `addon_account_data` (
 --
 
 INSERT INTO `addon_account_data` (`id`, `account_name`, `money`, `owner`) VALUES
-(4, 'society_cardealer', 2500, NULL);
+(4, 'society_cardealer', 10999, NULL);
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,6 @@ CREATE TABLE `cardealer_vehicles` (
 --
 
 CREATE TABLE `characters` (
-  `id` int(11) NOT NULL,
   `identifier` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
@@ -974,7 +973,7 @@ ALTER TABLE `cardealer_vehicles`
 -- Index pour la table `characters`
 --
 ALTER TABLE `characters`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`identifier`);
 
 --
 -- Index pour la table `datastore`
@@ -1144,7 +1143,7 @@ ALTER TABLE `vehicle_sold`
 -- AUTO_INCREMENT pour la table `addon_account_data`
 --
 ALTER TABLE `addon_account_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `addon_inventory_items`
@@ -1168,7 +1167,7 @@ ALTER TABLE `cardealer_vehicles`
 -- AUTO_INCREMENT pour la table `datastore_data`
 --
 ALTER TABLE `datastore_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `fine_types`
@@ -1246,13 +1245,13 @@ ALTER TABLE `twitter_tweets`
 -- AUTO_INCREMENT pour la table `user_accounts`
 --
 ALTER TABLE `user_accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `user_inventory`
 --
 ALTER TABLE `user_inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT pour la table `user_licenses`
